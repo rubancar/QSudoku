@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        maintable.cpp
+        maintable.cpp \
+    verifymatrix.cpp
 
-HEADERS  += maintable.h
+HEADERS  += maintable.h \
+    verifymatrix.h
 
 FORMS    += maintable.ui

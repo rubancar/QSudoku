@@ -17,12 +17,14 @@ class MainTable : public QMainWindow
 public:
     explicit MainTable(QWidget *parent = 0);
     ~MainTable();
+
     
 private slots:
     void verify_clicked();
 
 private:
     void initGui();
+    void printMatrix(int matriz[9][9]);
     
     Ui::MainTable *ui;
     QLineEdit *numberField[81];

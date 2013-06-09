@@ -1,15 +1,16 @@
 #include "maintable.h"
 #include "ui_maintable.h"
+#include "verifymatrix.h"
 #include <QLineEdit>
 #include <QGridLayout>
 #include <QApplication>
 #include <QString>
 #include <QLayoutItem>
 #include <QDebug>
+#include <iostream>
 
-MainTable::MainTable(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainTable)
+MainTable::MainTable(QWidget *parent):
+    QMainWindow(parent), ui(new Ui::MainTable)
 {
     ui->setupUi(this);
     initGui();
@@ -45,8 +46,23 @@ void MainTable::verify_clicked(){
             QLayoutItem *qli = ui->tablero->itemAtPosition(i,j);
             QLineEdit *qle = (QLineEdit*)(qli->widget());
             QString srt = qle->text();
-            qDebug() << srt;
+            //qDebug() << srt;
             matriz[i][j] = srt.toInt();
         }
+    }
+    printMatrix(matriz);
+
+    VerifyMatrix nueva;// = new VerifyMatrix();
+    nueva.mostrarMensaje(this);
+}
+
+void MainTable::printMatrix(int matriz[9][9]){
+    for(int i = 0; i < 9; i++)
+    {
+        for(int j = 0; j < 9; j++)
+        {
+            qDebug() << matriz[i][j] << " ";
+         }
+        qDebug() << "\n" ;
     }
 }
